@@ -11,6 +11,12 @@ prenom : {
   required: true
 },
 
+role :{
+  type: String,
+  required: true,
+  default: "administrateur"
+  
+},
 
 email : {
   type: String,
