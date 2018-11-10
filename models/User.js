@@ -1,7 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const UserSchema = new Schema({
-name : {
+nom : {
+  type: String,
+  required: true
+},
+
+prenom : {
   type: String,
   required: true
 },
@@ -23,18 +28,6 @@ date : {
   default: Date.now
 },
 
-id_cours_courant: {
-  type: Number
-
-},
-
-niveau_courant_id: {
-  type: Number
-},
-
-exercice_courant_id: {
-  type: Number
-}
 
 });
 

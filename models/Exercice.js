@@ -1,26 +1,35 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const UserSchema = new Schema({
-
-// exercice_id: {
-//   type: Number
-// },
-
-ordre : {
-  type: Number,
-  required: true
-},
-
-//array des questions id
-
-
+const ExerciceShema = new Schema({
+    id_Niveau : {
+        type: String,
+        required: true
+    },
+    num_Exercice : {
+        type: Intl,
+        required: true
+    },
+    description : {
+        type: String,
+        required: false
+    },
+    is_qcm:{
+        type: Boolean,
+        default: false
+    },
+    question : {
+        type: String,
+        required: true
+    },
+    reponses: [{
+         reponse: String, 
+         is_correct: Boolean 
+    }],
+    date: {
+        type: Date,
+        default: Date.now
+    }
 });
 
-module.exports = (autoIncrement) => {
-  UserSchema.plugin(autoIncrement.plugin, { model: 'Exercice', field: 'exercice_id', startAt: 1});
-  Exercice = mongoose.model('exercices', UserSchema);
-  //console.log('You are great!' + typeof Exercice);
-  
-  return Exercice;
-}
+module.exports = exercice = mongoose.model('exercice', ExerciceShema);

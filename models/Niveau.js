@@ -1,22 +1,27 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const UserSchema = new Schema({
 
-
-ordre : {
-  type: Number,
-  required: true
-},
-//examen_de_passage ici - collection de questions du niveau
-//array des exercices ids
-
-
+const NiveauShema = new Schema({
+    id_Cours : {
+        type: String,
+        required: true
+    },
+    num_Niveau : {
+        type: Intl,
+        required: true
+    },
+    description : {
+        type: String,
+        required: false
+    },
+    nbr_consultant : {
+        type: Intl,
+        required: false
+    },
+    date: {
+        type: Date,
+        default: Date.now
+    }
 });
 
-//module.exports = Niveau = mongoose.model('niveaux', UserSchema);
-module.exports = (autoIncrement) => {
-  UserSchema.plugin(autoIncrement.plugin, { model: 'Niveau', field: 'niveau_id', startAt: 1});
-  Niveau = mongoose.model('niveaux', UserSchema);
-  
-  return Niveau;
-}
+module.exports = Niveau = mongoose.model('niveaux', NiveauShema);
