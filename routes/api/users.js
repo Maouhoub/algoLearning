@@ -1,12 +1,15 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../../models/User");
+const mongoose = require('mongoose');
+const autoIncrement = require('mongoose-auto-increment');
+const db = require('../../config/keys').mongoURI;
 const gravatar = require("gravatar");
 const keys = require('../../config/keys'); 
 const bcrypt = require("bcryptjs");
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
-
+autoIncrement.initialize(mongoose.createConnection(db));
+const User = require("../../models/User")(autoIncrement);
 router.get("/test", (req, res) =>
   res.json({
     msg: "users work"
@@ -16,7 +19,8 @@ router.get("/test", (req, res) =>
 router.post("/register", (req, res) => {
   User.findOne({ email: req.body.email }).then(user => {
     if (user) {
-      return res.status(400).json({ email: "email already exists" });
+      console.log(user)
+      return res.status(400).json({ email: "email deja existant!" });
     } else {
       const avatar = gravatar.url(req.body.email, {
         s: "200",
@@ -24,7 +28,8 @@ router.post("/register", (req, res) => {
         d: "mm"
       });
       const newUser = new User({
-        name: req.body.name,
+        nom: req.body.nom,
+        prenom: req.body.nom,
         email: req.body.email,
         avatar,
         password: req.body.password

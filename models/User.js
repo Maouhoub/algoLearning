@@ -14,7 +14,7 @@ prenom : {
 role :{
   type: String,
   required: true,
-  default: "administrateur"
+  default: "utilisateur"
   
 },
 

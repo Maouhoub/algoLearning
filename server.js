@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 const db = require('./config/keys').mongoURI;
 const port = 5000;
 const users = require('./routes/api/users');
+const users_report = require('./routes/api/users_report');
 mongoose
 .connect(db, { useNewUrlParser: true })
 .then(() => console.log('Mongo DB connected'))
@@ -32,15 +33,16 @@ email: "ksmaouhoub@gmail.com",
 password: "mypass"
 });
 
-user1.save((err) => {
-  if(err)
-    console.log(err)
-  else
-    console.log("success")
-});
+// user1.save((err) => {
+//   if(err)
+//     console.log(err)
+//   else
+//     console.log("success")
+// });
 
 app.use('/api/users', users);
-//1 -- ajout d'un cours
+app.use('/api/users_report', users_report);
+
 
 
 

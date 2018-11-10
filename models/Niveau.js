@@ -6,6 +6,11 @@ const NiveauShema = new Schema({
         type: String,
         required: true
     },
+    // pour faire la liaison entre niveau et exercice. exercice.id_niveau
+    id_niveau: {
+        type: String,
+        required: true
+    },
     num_Niveau : {
         type: Intl,
         required: true
