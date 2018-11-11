@@ -27,9 +27,9 @@ const UserModel = require('./models/User')(autoIncrement);
 console.log(UserModel)
 
 const user1 = new UserModel({
-nom: "Alami",
-prenom: "Mustapha",
-email: "ksmaouhoub@gmail.com",
+nom: "Khalfaoui",
+prenom: "Fatima",
+email: "khelfawi@gmail.com",
 password: "mypass"
 });
 

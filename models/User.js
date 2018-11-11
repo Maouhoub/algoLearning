@@ -11,6 +11,12 @@ prenom : {
   required: true
 },
 
+cours_id: {
+  type: String,
+  required: true,
+  default: 1
+},
+
 role :{
   type: String,
   required: true,
