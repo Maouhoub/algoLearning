@@ -6,6 +6,10 @@ nom : {
   required: true
 },
 
+temps_total:{
+
+} ,
+
 prenom : {
   type: String,
   required: true
